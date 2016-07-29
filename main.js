@@ -23,7 +23,7 @@ cli
     DiscordAcc.on('ready', () => { DiscordAcc.setStatusOnline(); });
     this.log("Your status has been set to Online.");
     callback();
-  })
+  });
 
 cli
   .command('set', 'Set various variables')
