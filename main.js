@@ -6,16 +6,13 @@ var DiscordAcc = new Discord.Client();
 // var idle = false;
 
 // Connect to Discord
-DiscordAcc.login(config.email, config.password, function(error) {
-  cli.log("Error logging into Discord... :( Check your config.json.");
-  process.exit();
-});
+DiscordAcc.login(config.email, config.password); // screw callbacks
 cli.log("Successfully logged into Discord!");
 
 cli
   .command('afk', 'Set status to Idle on Discord')
   .action(function(args, callback) {
-    DiscordAcc.setStatusIdle();
+    DiscordAcc.on('ready', () => { DiscordAcc.setStatusAway(); });
     this.log("Your status has been set to Idle.");
     callback();
   });
@@ -23,18 +20,16 @@ cli
 cli
   .command('back', 'Set status to Online on Discord')
   .action(function(args, callback) {
-    DiscordAcc.setStatusOnline();
+    DiscordAcc.on('ready', () => { DiscordAcc.setStatusOnline(); });
     this.log("Your status has been set to Online.");
     callback();
-  })
+  });
 
 cli
   .command('set', 'Set various variables')
   .option('-g, --game <game>', 'Set playing game.')
   .action(function(args, cb) {
-    DiscordAcc.setPlayingGame(args, function(error) {
-      this.log("I couldn't set your game.");
-    });
+    DiscordAcc.on('ready', () => { DiscordAcc.setPlayingGame(args); });
     cb();
   });
 
