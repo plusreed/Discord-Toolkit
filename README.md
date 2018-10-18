@@ -1,5 +1,7 @@
-Discord-Toolkit
----
+# This project is deprecated, I didn't have much time to work on it plus I don't want to really work on it anymore. Sorry.
+
+# Discord-Toolkit
+
 A WIP CLI-based Discord.
 
 ### Features
