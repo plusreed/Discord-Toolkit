@@ -11,9 +11,7 @@ A WIP CLI-based Discord.
 ### Coming Soon™
 * Define your own cvars
 * Switch Discord profile picture
-* Streaming statuses (maybe use `set` to do these?)
 * Chatting in Discord guilds (maybe use the cvars so the user doesn't have to remember the guild ID)
-* First-time setup (autogen config.json)
 
 ### Dependencies
 * vorpal
